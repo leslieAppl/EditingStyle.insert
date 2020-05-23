@@ -69,15 +69,17 @@ extension EmbeddedTableViewCell: UITableViewDataSource {
         if editingStyle == .delete {
             let text = rows[indexPath.row]
             rows.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .top)
+//            tableView.deleteRows(at: [indexPath], with: .top)
             rowsChangedCallback?(.delete(indexPath), text)
         } else if editingStyle == .insert {
             let text = "A New Row #\(indexPath.row)"
-            let newIndexPath = IndexPath(row: rows.count, section: 0)
+//            let newIndexPath = IndexPath(row: rows.count, section: 0)
             rows.append(text)
-            tableView.insertRows(at: [newIndexPath], with: .top)
+//            tableView.insertRows(at: [newIndexPath], with: .top)
             rowsChangedCallback?(.insert(indexPath), text)
         }
+        
+        tableView.reloadData()
     }
 }
 

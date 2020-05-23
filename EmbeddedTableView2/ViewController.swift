@@ -33,11 +33,14 @@ class ViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
+        
         if indexPath.section == 0 {
             cell = tableView.dequeueReusableCell(withIdentifier: "Simple1", for: indexPath)
-        } else if indexPath.section == 2 {
+        }
+        else if indexPath.section == 2 {
             cell = tableView.dequeueReusableCell(withIdentifier: "Simple2", for: indexPath)
-        } else {
+        }
+        else {
             cell = tableView.dequeueReusableCell(withIdentifier: "EmbeddedCell", for: indexPath)
             let embeddedCell = cell as! EmbeddedTableViewCell
             embeddedCell.rows = embeddedTableViewRows
@@ -75,5 +78,8 @@ class ViewController: UITableViewController {
         return false
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("didSelectRowAt: \(indexPath)")
+    }
 }
 
